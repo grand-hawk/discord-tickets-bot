@@ -14,7 +14,7 @@ RUN chmod +x ./scripts/start.sh
 
 COPY package.json bun.lock ./
 
-RUN CI=true bun install --production --frozen-lockfile --verbose
+RUN CI=true bun install --production --frozen-lockfile --verbose --concurrent-scripts=1
 
 COPY --link . .
 
