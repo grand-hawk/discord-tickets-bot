@@ -9,7 +9,7 @@ RUN chmod +x ./scripts/start.sh
 
 COPY package.json bun.lock ./
 
-RUN CI=true bun install --production --frozen-lockfile
+RUN CI=true bun install --production --frozen-lockfile --verbose
 
 COPY --link . .
 
