@@ -4,6 +4,11 @@ FROM oven/bun:1 AS builder
 
 WORKDIR /build
 
+RUN apt-get update \
+	&& apt-get install --no-install-recommends -y \
+	build-essential python3 python-is-python3 \
+	&& rm -rf /var/lib/apt/lists/*
+
 COPY --link scripts scripts
 RUN chmod +x ./scripts/start.sh
 
@@ -26,7 +31,7 @@ RUN mkdir /app \
 	&& chmod -R 777 /app
 
 RUN mkdir -p /home/container/user /home/container/logs \
-    && chown -R container:container /home/container
+	&& chown -R container:container /home/container
 
 USER container
 ENV USER=container \
