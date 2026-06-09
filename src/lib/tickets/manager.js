@@ -26,6 +26,9 @@ const {
 	getAverageTimes, getAverageRating,
 } = require('../stats');
 const { pools } = require('../threads');
+const {
+	isPanelCreateInteraction, replyPanelsOnly,
+} = require('./utils');
 
 const { crypto } = pools;
 
@@ -158,6 +161,10 @@ module.exports = class TicketManager {
 	async create({
 		categoryId, interaction, topic, referencesMessageId, referencesTicketId,
 	}) {
+		if (!isPanelCreateInteraction(interaction)) {
+			return await replyPanelsOnly(this.client, interaction);
+		}
+
 		categoryId = Number(categoryId);
 		const category = await this.getCategory(categoryId);
 

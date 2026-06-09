@@ -1,5 +1,5 @@
 const { MessageCommand } = require('@eartharoid/dbf');
-const { useGuild } = require('../../lib/tickets/utils');
+const { replyPanelsOnly } = require('../../lib/tickets/utils');
 
 module.exports = class CreateMessageCommand extends MessageCommand {
 	constructor(client, options) {
@@ -18,6 +18,6 @@ module.exports = class CreateMessageCommand extends MessageCommand {
 	 * @param {import("discord.js").MessageContextMenuCommandInteraction} interaction
 	 */
 	async run(interaction) {
-		await useGuild(this.client, interaction, { referencesMessageId: interaction.targetId });
+		await replyPanelsOnly(this.client, interaction);
 	}
 };

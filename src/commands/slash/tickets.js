@@ -133,13 +133,9 @@ module.exports = class TicketsSlashCommand extends SlashCommand {
 		}
 
 		if (closed.length === 0) {
-			const newCommand = client.application.commands.cache.find(c => c.name === 'new');
 			fields.push({
 				name: getMessage('commands.slash.tickets.response.fields.closed.name'),
-				value: getMessage(`commands.slash.tickets.response.fields.closed.none.${ownOrOther}`, {
-					new: `</${newCommand.name}:${newCommand.id}>`,
-					user: member.user.toString(),
-				}),
+				value: getMessage(`commands.slash.tickets.response.fields.closed.none.${ownOrOther}`, { user: member.user.toString() }),
 			});
 		} else {
 			fields.push({
