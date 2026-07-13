@@ -46,10 +46,12 @@ module.exports = async function handleStaleTickets(client, staleInterval) {
 									.setDescription(getMessage('ticket.closing_soon.description', { timestamp: Math.floor(($.closeAt + staleInterval) / 1000) })),
 							],
 						});
-					} else if ($.closeAt < Date.now()) {
-						await client.tickets.finallyClose(ticket.id, $);
-						closed++;
 					}
+					// Automatic closing by inactivity is disabled; reminders are kept.
+					// } else if ($.closeAt < Date.now()) {
+					// 	await client.tickets.finallyClose(ticket.id, $);
+					// 	closed++;
+					// }
 				} else if (Date.now() - (ticket.lastMessageAt || ticket.createdAt) >= guild.staleAfter) {
 					// set as stale
 					/** @type {import("discord.js").TextChannel} */
