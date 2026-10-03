@@ -141,12 +141,13 @@ or contribute in any other way, please read the [contributing guidelines](https:
 
 ## ⭐ Star History
 
-<details>
-  <summary>Show graph</summary>
-
-  [![Star History Chart](https://api.star-history.com/svg?repos=discord-tickets/bot&type=Date)](https://star-history.com/#discord-tickets/bot&Date)
-
-</details>
+<a href="https://star-history.dera.page/#discord-tickets/bot">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=discord-tickets/bot&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=discord-tickets/bot" />
+   <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=discord-tickets/bot" />
+ </picture>
+</a>
 
 ## 🥱 License
 
